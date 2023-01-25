@@ -1,25 +1,35 @@
 
-public class Cuadrado 
-{
-	public int ID;
+public class Cuadrado {
+
+	public int lado;
 	
 	public Cuadrado()
 	{
-		ID = 177478;
+		this(177478);
+	}
+	
+	public Cuadrado(int x)
+	{
+		this.lado = x;
+	}
+	
+	public int calcularArea()
+	{
+			return lado * lado;
 	}
 		
-		public int calcularArea()
-		{
-			return ID * ID;
-		}
+	public double calcularDiagonal()
+	{
+			return Math.sqrt((Math.pow(lado, 2))+ (Math.pow(lado, 2)));
+	}
 		
-		public double calcularDiagonal()
-		{
-			return Math.sqrt((Math.pow(ID, 2))+ (Math.pow(ID, 2)));
-		}
+	public int calcularPerimetro()
+	{
+			return lado * 4;
+	}
 		
-		public void cambiarLongitud(int x)
-		{
-			ID = x;
-		}
+	public void cambiarLongitud(int x)
+	{
+			lado = x;
+	}
 }

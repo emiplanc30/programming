@@ -1,20 +1,21 @@
 
 public class Circulo {
 	
-	public int ID;
+	public int radio;
 	
 	public Circulo()
 	{
-		ID = 177478;
+		this(177478);
 	}
 	
-	// esta operación obtiene el radio.
-	double radio = ID * (0.5);
+	public Circulo(int x)
+	{
+		this.radio = x;
+	}
 	
 	public double calcularCircunferencia() 
 	{
-		// el ID se toma como el díametro del círculo.
-		return ID * (3.1416);
+		return radio * (3.1416);
 	}
 	
 	public double calcularArea()
@@ -22,9 +23,8 @@ public class Circulo {
 		return (3.1416) * Math.pow(radio, 2);
 	}
 	
-	public void  cambiarDiametro(int x)
+	public void  cambiarRadio(int x)
 	{
-		ID = x;
+		radio = x;
 	}
-
 }
