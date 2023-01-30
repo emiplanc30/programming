@@ -5,55 +5,75 @@ public class program_scan
 
 	public static void main(String[] args) 
 	{
+		
+		
 		Circulo circ = new Circulo();
 		Cuadrado cuad = new Cuadrado();
 		String figura, option;
 		
-		System.out.println("¿Qué desea hacer?: cuadrado o círculo.");
-		System.out.println("Recuerda no usar acentos y escribir todo en minúsculas.");
 		Scanner scan = new Scanner(System.in);
-		figura = scan.nextLine();
-		
-		if (figura.contains("cuadrado"))
+		while (true)
 		{
-			System.out.println("¿Cuánto mide el lado del cuadrado?");
-			String value = scan.nextLine();
-			int lado = Integer.parseInt(value);
-			cuad.cambiarLongitud(lado);
-			System.out.println("¿Qué desea obtener?: perímetro, área o diagonal.");
-			option = scan.nextLine();
-			
-			if (option.contains("perimetro"))
+			System.out.println("Escoga una figura u opción: 1. cuadrado, 2. círculo, ó 3. terminar.");
+			int opt = Integer.parseInt(scan.nextLine());
+			switch (opt)
 			{
-				System.out.println("El perímetro es: " + cuad.calcularPerimetro());
-			}
-			if (option.contains("area"))
-			{
-				System.out.println("El area es: " + cuad.calcularArea());
-			}
-			if (option.contains("diagonal"))
-			{
-				System.out.println("La diagonal es: " + cuad.calcularDiagonal());
-			}
-			
-		}
-		
-		if (figura.contains("circulo"))
-		{
-			System.out.println("¿Cuánto mide el radio?");
-			String value = scan.nextLine();
-			int radio = Integer.parseInt(value);
-			circ.cambiarRadio(radio);
-			System.out.println("¿Qué desa obtener?: circunferencia o área");
-			option = scan.nextLine();
-			
-			if (option.contains("circunferencia"))
-			{
-				System.out.println("La circunferencia es: " + circ.calcularCircunferencia());
-			}
-			if (option.contains("area"))
-			{
-				System.out.println("El área es: " + circ.calcularArea());
+			case 1:
+				System.out.println("¿Cuánto mide el lado del cuadrado?");
+				int lado = Integer.parseInt(scan.nextLine());
+				cuad.cambiarLongitud(lado);
+				System.out.println("¿Qué desea obtener? (ingrese el número de la opción): ");
+				System.out.println("1. perímetro, 2. área, 3. diagonal, ó 4. regresar.");
+				int optCuad = Integer.parseInt(scan.nextLine());
+				if (optCuad == 1)
+				{
+					System.out.println("El perímetro es: " + cuad.calcularPerimetro());
+				}
+				if (optCuad == 2)
+				{
+					System.out.println("El área es: " + cuad.calcularArea());
+				}
+				if (optCuad == 3)
+				{
+					System.out.println("La diagonal es: " + cuad.calcularDiagonal());
+				}
+				if (optCuad == 4)
+				{
+					System.out.println("Regresando... ");
+					continue;
+				}
+				break;
+				
+			case 2:
+				System.out.println("¿Cuánto mide el radio?");
+				int radio = Integer.parseInt(scan.nextLine());
+				circ.cambiarRadio(radio);
+				System.out.println("¿Qué desea obtener? (ingrese el número de la opción): ");
+				System.out.println("1. circunferencia, 2. área ó 3. regresar.");
+				int optCirc = Integer.parseInt(scan.nextLine());
+				if (optCirc == 1)
+				{
+					System.out.println("La circunferencia es: " + circ.calcularCircunferencia());
+				}
+				if (optCirc == 2)
+				{
+					System.out.println("El área es: " + circ.calcularArea());
+				}
+				if (optCirc == 3)
+				{
+					System.out.println("Regresando... ");
+					continue;
+				}
+				break;
+				
+			case 3:
+				System.out.println("Terminando... ");
+				System.exit(0);
+				break;
+				
+			default:
+				System.out.println("Opción inválida... escoga otra opción.");
+				break;
 			}
 		}
 	}
